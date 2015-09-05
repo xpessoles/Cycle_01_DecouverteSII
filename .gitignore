@@ -1,3 +1,16 @@
+#################
+## LaTeX
+#################
+*.aux
+*.toc
+*.out
+*.log
+*.bcf
+*.idx
+*.ptc
+*.run
+*.gz
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
