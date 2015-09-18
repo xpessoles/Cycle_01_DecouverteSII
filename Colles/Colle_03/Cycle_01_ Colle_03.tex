@@ -1,0 +1,214 @@
+\documentclass[10pt,fleqn]{book} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Cycle 01 : Introduction aux grandeurs physiques},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+
+\input{style/new_style}
+\input{style/macros_SII}
+
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+%\courstrue
+\coursfalse
+
+\newcommand{\bfsf}[1]{\textbf{\textsl{#1}}}%{\textbf{\textsf{#1}}}
+
+% -------------------------------------
+% Déclaration des titres
+% -------------------------------------
+
+\def\discipline{Sciences \\ Industrielles de \\
+l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+\def\classe{PTSI}
+\def\xxnumpartie{Cycle 01}
+\def\xxpartie{Découverte des systèmes pluritechnologiques -- Introduction aux grandeurs physiques}
+
+\def\xxnumchapitre{Chapitre 1 \& 2}
+\def\xxchapitre{\hspace{.12cm} Grandeurs mécaniques et électriques}
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{13}%10
+
+\def\xxonglet{Cycle 1 -- Ch. 1 \& 2}
+
+\def\xxactivite{Colle 2}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item -- %Alg -- C15 : Récursivité : avantages et inconvénients.
+\end{itemize}
+}}
+
+\def\xxfigures{
+}%figues de la page de garde
+
+\def\xxpied{%
+Cycle 1 -- Introduction aux grandeurs physiques \\
+Ch. 1 \& 2 : Grandeurs mécaniques et électriques -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+\def\xxtitreexo{Exercices d'application}
+\def\xxsourceexo{}
+%---------------------------------------------------------------------------
+\begin{document}
+\input{style/new_pagegarde}
+\vspace{7cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+\begin{multicols}{2}
+%---------------------------------------------------------------------------
+
+\section*{Exercice 1 -- Mouvement de translation}
+
+Joe Dupont conduit une voiture à $50\; \text{km}\,\text{h}^{-1}$ dans une rue horizontale. La voiture a une masse de $1\,060\; \text{kg}$. Soudain, il freine pour s’arrêter.  On suppose que la décélération est constante pendant tout le freinage ($a = -2\; \text{m}\,\text{s}^2$).
+
+\subparagraph{}
+\textit{Indiquer la direction et le sens de la force exercée sur la voiture, calculer son intensité.}
+
+\subparagraph{}
+\textit{Calculer la durée du freinage.}
+
+\subparagraph{}
+\textit{Calculer la distance du freinage.}
+
+
+\section*{Exercice 2 -- Calcul de moments}
+
+\setcounter{subparagraph}{0}
+On donne la structure suivante : 
+\begin{center}
+\includegraphics[width=.6\linewidth]{images/moment8}
+\end{center}
+
+\subparagraph{}
+\textit{Déterminer $\vect{\mathcal{M}\left(A,\vect{F} \right)}$.}
+
+On donne la structure suivante : 
+\begin{center}
+\includegraphics[width=.6\linewidth]{images/fig_03}
+\end{center}
+
+
+\subparagraph{}
+\textit{Déterminer $\vect{\mathcal{M}\left(B,\vect{F} \right)}$.}
+
+
+
+
+\section*{Exercice 3 -- Circuit électrique de voiture}
+\setcounter{subparagraph}{0}
+Le schéma ci-dessous est le schéma partiel d'un circuit électrique de voiture :
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/fig_04}
+\end{center}
+
+On donne : $E_{\text{bat}}  = 13,8 \; \text{V}$, $R_{\text{bat}} = 20 \; \text{m}\Omega$ , $I_{\text{alt}}  = 136 \; \text{A}$ , $R_{\text{alt}}  = 0,2 \; \Omega$, $R_{\text{all}}  = 2 \; \Omega$ et $R_{\text{fils}}  = 0,1 \; \Omega$.
+
+\subparagraph{}
+\textit{Déterminer la résistance équivalente des phares $R_{\text{pha}}$, sachant qu’une intensité de 20,7 A la traverse sous une tension de 13,8V.}
+\ifprof
+\begin{corrige}
+D’après la loi d’Ohm aux bornes de la résistance, on a $U_\text{pha}=R_\text{pha} \cdot i_\text{pha} \Longleftrightarrow R_\text{pha}=U_\text{pha}/i_\text{pha} =\dfrac{13,8}{20,7}=0,67\; \Omega$. 
+\end{corrige}
+\else
+\fi
+\subparagraph{}
+\textit{Déterminer la résistance équivalente du dégivreur $R_{\text{deg}}$, qui absorbe 360 W pour 30 A.}
+\ifprof
+\begin{corrige}
+La puissance absorbée par la résistance s’exprime par : $\mathcal{P}_\text{deg}=U_\text{deg} \cdot i_\text{deg}$. 
+En utilisant la loi d’Ohm, on a :
+$\mathcal{P}_\text{deg}=R_\text{deg}\cdot i_\text{deg}^2 \Longleftrightarrow R_\text{deg}=\dfrac{\mathcal{P}_\text{deg}}{i_\text{deg}^2 }=\dfrac{360}{900}=0,4 \; \Omega$.
+
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Déterminer la résistance équivalente des charges (allumage, phares, fils et dégivreur).}
+\ifprof
+\begin{corrige}
+On a alors : 
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/cor_01}
+\end{center}
+$\dfrac{1}{R_\text{eq}} =\dfrac{1}{R_\text{all}} +\dfrac{1}{R_\text{pha}} +\dfrac{1}{R_\text{fils}+R_\text{deg} }$, $\dfrac{1}{R_\text{eq}}=\dfrac{1}{2}+\dfrac{1}{0,6}+\dfrac{1}{0,4+0,1}=4,166$.
+On a donc $R_\text{eq}=0,240 \;\Omega$.
+
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}
+\textit{Déterminer le circuit équivalent Thévenin de la batterie et de l’alternateur vu des points $A$ et $B$.}
+\ifprof
+\begin{corrige}
+Afin de déterminer le circuit équivalent des deux sources, on convertit la source de courant en source de tension grâce à l’équivalence Thévenin-Norton.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/cor_02}
+\end{center}
+
+On a alors : 
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/cor_03}
+\end{center}
+ 
+Pour trouver la résistance équivalente, on passive les sources. On a alors 2 résistances en parallèles : 
+$\dfrac{1}{R_\text{AB}} =\dfrac{1}{R_\text{bat}} +\dfrac{1}{R_\text{alt}} \Longleftrightarrow R_\text{AB}=\dfrac{R_\text{alt} R_\text{bat}}{R_\text{bat}+R_\text{alt}}$
+Par ailleurs, $ E_\text{AB}=\dfrac{E_\text{bat}/R_\text{bat} +E_\text{alt}/R_\text{alt} }{1/R_\text{bat} +1/R_\text{alt} }=\dfrac{E_\text{bat} R_\text{alt}+R_\text{bat} E_\text{alt}}{R_\text{alt}+R_\text{bat} }$. 
+AN : $R_\text{AB}=0,018 \;\Omega$, $E_\text{AB}=15 \; \text{V}$.
+Au final on a donc :
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/cor_04}
+\end{center}
+\end{corrige}
+\else
+\fi
+
+
+\subparagraph{}
+\textit{Déterminer la tension $U_{AB}$ lorsque les charges sont connectées à la batterie et l’alternateur.}
+\ifprof
+
+\begin{center}
+\includegraphics[width=.45\linewidth]{images/cor_05}
+\end{center}
+
+\begin{corrige}
+Pour déterminer $U_{AB}$ on a recours à un ont diviseur de tension et on a :
+$U_{AB}=\dfrac{R_\text{eq}}{R_{AB}+R_\text{eq} } E_{AB}$
+AN : $U_{AB}=13,94 \; \text{V}$.
+
+\end{corrige}
+\else
+\fi
+
+\end{multicols}
+%\begin{thebibliography}{2}
+%\bibitem{1}{Patrick Beynet, \textit{Supports de cours de TSI 2}, Lycée Rouvière, Toulon.}
+%\bibitem{2}{<< Mandel zool 08 satellite antenna >>. Sous licence CC BY-SA via Wikimedia Commons - \url{https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot#/media/File:Mandel_zoom_08_satellite_antenna.jpg}}
+%\bibitem{3}{\url{http://www.obside.fr/fractales/pages/Recursif/}}
+%\end{thebibliography}
+\end{document}
+

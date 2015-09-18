@@ -1,0 +1,192 @@
+\documentclass[10pt,fleqn]{book} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Cycle 01 : Introduction aux grandeurs physiques},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+
+\input{style/new_style}
+\input{style/macros_SII}
+
+\fichetrue
+%\fichefalse
+
+\proftrue
+%\proffalse
+
+\tdtrue
+%\tdfalse
+
+%\courstrue
+\coursfalse
+
+\newcommand{\bfsf}[1]{\textbf{\textsl{#1}}}%{\textbf{\textsf{#1}}}
+
+% -------------------------------------
+% Déclaration des titres
+% -------------------------------------
+
+\def\discipline{Sciences \\ Industrielles de \\
+l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+\def\classe{PTSI}
+\def\xxnumpartie{Cycle 01}
+\def\xxpartie{Découverte des systèmes pluritechnologiques -- Introduction aux grandeurs physiques}
+
+\def\xxnumchapitre{Chapitre 1 \& 2}
+\def\xxchapitre{\hspace{.12cm} Grandeurs mécaniques et électriques}
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{13}%10
+
+\def\xxonglet{Cycle 1 -- Ch. 1 \& 2}
+
+\def\xxactivite{Colle 1}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item -- %Alg -- C15 : Récursivité : avantages et inconvénients.
+\end{itemize}
+}}
+
+\def\xxfigures{
+}%figues de la page de garde
+
+\def\xxpied{%
+Cycle 1 -- Introduction aux grandeurs physiques \\
+Ch. 1 \& 2 : Grandeurs mécaniques et électriques -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+\def\xxtitreexo{Exercices d'application}
+\def\xxsourceexo{}
+%---------------------------------------------------------------------------
+\begin{document}
+\input{style/new_pagegarde}
+\vspace{8cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+\begin{multicols}{2}
+%---------------------------------------------------------------------------
+
+\section*{Exercice 1}
+
+Pour aller rechercher des produits dans leurs rayons, Amazon utilise des axes linéaires afin de déplacer un préhenseur.
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_01}
+\end{center}
+
+Les performances dynamique de l'axe demandées sont les suivantes : 
+\begin{itemize}
+\item vitesse linéaire maximale : $50 \; \text{m}\,\text{min}^{-1}$;
+\item accélération linéaire maximale : $9,8 \; \text{m}\, \text{s}^{-2}$.
+\end{itemize}
+
+\begin{obj}
+L'objectif de ce travail est de déterminer les caractéristiques du moteur (vitesse et couple) permettant d'atteindre ces performances.
+\end{obj}
+
+\subparagraph{}
+\textit{Quelle est la vitesse maximale que l'axe peut atteindre en  $\text{m}\, \text{s}^{-1}$.}
+
+\subparagraph{}
+\textit{Combien de temps l'axe met-il pour atteindre la vitesse maximale ?}
+
+\subparagraph{}
+\textit{Quelle distance l'axe parcourt-il pour atteindre la vitesse maximale ?}
+
+
+\subparagraph{}
+\textit{Quelle est la longueur minimale à commander pour que l'axe puisse atteindre la vitesse maximale ?}
+
+\subparagraph{}
+\textit{Proposer une longueur minimale de l'axe pour pouvoir profiter de ses performances dynamiques.}
+
+\subparagraph{}
+\textit{Tracer le profil de la position, de la vitesse et de l'accélération pour parcourir une distance de 50 cm. On cherchera à atteindre les performances maximales de l'axe. }
+
+Un motoréducteur permet d'entraîner un système poulie -- courroie permettant de déplacer la charge. On considère :
+\begin{itemize}
+\item une charge de masse $1\; \text{kg}$;
+\item un poulie de rayon $5\; \text{cm}$;
+\item un réducteur de rapport de transmission $1:20$.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/fig_02}
+\end{center}
+
+\subparagraph{}
+\textit{Déterminer le couple à fournir par la poulie pour déplacer la charge lorsque l'accélération est au maximum. }
+
+
+\subparagraph{}
+\textit{Déterminer la vitesse et le couple à fournir par le moteur en considérant que l'inertie du motoréducteur est négligeable. }
+
+
+\subparagraph{}
+\textit{Donner la méthode permettant de prendre en compte l'inertie $J$ du motoréducteur ? Quel serait l'impact de la prise en compte de cette hypothèse ? }
+
+\section*{Exercice 2}
+
+\setcounter{subparagraph}{0}
+On donne le schéma électrique suivant :
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/fig_03}
+\end{center}
+
+avec : 
+\begin{multicols}{2}
+\begin{itemize}
+\item $R_1 = 1 \: \text{k}\Omega$;
+\item $R_2 = 3 \: \text{k}\Omega$;
+\item $R_3 = 4 \: \text{k}\Omega$;
+\item $R_4 = 2 \: \text{k}\Omega$:
+\item $E=10 \; \text{V}$.
+\end{itemize}
+\end{multicols}
+
+\subparagraph{}
+\textit{Déterminer la résistance équivalente.}
+
+\subparagraph{}
+\textit{Déterminer la tension aux bornes de chacune des résistances ainsi que le courant traversant chaque dipôle.}
+
+
+\section*{Exercice 3}
+
+\setcounter{subparagraph}{0}
+On donne la structure suivante : 
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/fig_04}
+\end{center}
+
+
+\subparagraph{}
+\textit{Déterminer $\vect{\mathcal{M}\left(A,\vect{F} \right)}$.}
+
+
+
+On donne la structure suivante : 
+\begin{center}
+\includegraphics[width=.8\linewidth]{images/fig_05}
+\end{center}
+
+
+\subparagraph{}
+\textit{Déterminer $\vect{\mathcal{M}\left(O,\vect{F} \right)}$.}
+\end{multicols}
+
+%\begin{thebibliography}{2}
+%\bibitem{1}{Patrick Beynet, \textit{Supports de cours de TSI 2}, Lycée Rouvière, Toulon.}
+%\bibitem{2}{<< Mandel zool 08 satellite antenna >>. Sous licence CC BY-SA via Wikimedia Commons - \url{https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot#/media/File:Mandel_zoom_08_satellite_antenna.jpg}}
+%\bibitem{3}{\url{http://www.obside.fr/fractales/pages/Recursif/}}
+%\end{thebibliography}
+\end{document}
+
