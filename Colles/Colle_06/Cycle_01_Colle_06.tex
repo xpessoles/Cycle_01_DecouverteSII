@@ -1,0 +1,143 @@
+\documentclass[10pt,fleqn]{book} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Cycle 01 : Introduction aux grandeurs physiques},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+
+\input{style/new_style}
+\input{style/macros_SII}
+
+\fichetrue
+%\fichefalse
+
+%\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+%\courstrue
+\coursfalse
+
+\newcommand{\bfsf}[1]{\textbf{\textsl{#1}}}%{\textbf{\textsf{#1}}}
+
+% -------------------------------------
+% Déclaration des titres
+% -------------------------------------
+
+\def\discipline{Sciences \\ Industrielles de \\
+l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+\def\classe{PTSI}
+\def\xxnumpartie{Cycle 01}
+\def\xxpartie{Découverte des systèmes pluritechnologiques -- Introduction aux grandeurs physiques}
+
+\def\xxnumchapitre{Chapitre 1 \& 2}
+\def\xxchapitre{\hspace{.12cm} Grandeurs mécaniques et électriques}
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{13}%10
+
+\def\xxonglet{Cycle 1 -- Ch. 1 \& 2}
+
+\def\xxactivite{Colle 6}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item -- %Alg -- C15 : Récursivité : avantages et inconvénients.
+\end{itemize}
+}}
+
+\def\xxfigures{
+}%figures de la page de garde
+
+\def\xxpied{%
+Cycle 1 -- Introduction aux grandeurs physiques \\
+Ch. 1 \& 2 : Grandeurs mécaniques et électriques -- \xxactivite%
+}
+
+\setcounter{secnumdepth}{5}
+\def\xxtitreexo{Exercices d'application}
+\def\xxsourceexo{}
+%---------------------------------------------------------------------------
+\begin{document}
+\input{style/new_pagegarde}
+\vspace{7cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+\begin{multicols}{2}
+%---------------------------------------------------------------------------
+
+\section*{Exercice 1 -- Résistances équivalentes}
+
+\subparagraph{}
+\textit{Déterminer la résistance équivalente au schéma ci-dessous.}
+
+\ifprof
+\begin{corrige}
+
+\end{corrige}
+\else
+\fi
+
+\begin{center}
+\includegraphics[width=.6\linewidth]{images/fig_03}
+\end{center}
+
+\section*{Exercice 2 -- Lois  de Kirchhoff}
+\setcounter{subparagraph}{0}
+
+\subparagraph{}
+\textit{Donner le courant dans chacune des branches du circuit ci-dessous.}
+
+\ifprof
+\begin{corrige}
+
+\end{corrige}
+\else
+\fi
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_04}
+\end{center}
+
+\section*{Exercice 3 -- Application du PFS}
+\setcounter{subparagraph}{0}
+
+\textit{D'après Guide de mécanique -- Jean-Luis Fanchon.}
+
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_05}
+\end{center}
+
+\subparagraph{}
+\textit{Choisir un repère orthonormé direct.}
+
+
+\subparagraph{}
+\textit{Déterminer $\vect{\mathcal{M}\left(A,\vect{P_1} \right)}$, $\vect{\mathcal{M}\left(A,\vect{P_2} \right)}$, 
+$\vect{\mathcal{M}\left(A,\vect{P_3} \right)}$, $\vect{\mathcal{M}\left(A,\vect{B} \right)}$.}
+
+
+\subparagraph{}
+\textit{Appliquer le PFS en A.}
+
+\subparagraph{}
+\textit{Déterminer $\vect{A}$ et $\vect{B}$.}
+
+\section*{Exercice 4 -- Application du PFD}
+\end{multicols}
+%\begin{thebibliography}{2}
+%\bibitem{1}{Patrick Beynet, \textit{Supports de cours de TSI 2}, Lycée Rouvière, Toulon.}
+%\bibitem{2}{<< Mandel zool 08 satellite antenna >>. Sous licence CC BY-SA via Wikimedia Commons - \url{https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot#/media/File:Mandel_zoom_08_satellite_antenna.jpg}}
+%\bibitem{3}{\url{http://www.obside.fr/fractales/pages/Recursif/}}
+%\end{thebibliography}
+\end{document}
+

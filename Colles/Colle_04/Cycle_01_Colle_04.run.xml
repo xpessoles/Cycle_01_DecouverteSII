@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>"Cycle_01_ Colle_04".bcf</file>
+      <file>Cycle_01_Colle_04.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>"Cycle_01_ Colle_04".bbl</file>
+      <file>Cycle_01_Colle_04.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>"Cycle_01_ Colle_04"</infile>
+      <infile>Cycle_01_Colle_04</infile>
     </cmdline>
     <input>
-      <file>"Cycle_01_ Colle_04".bcf</file>
+      <file>Cycle_01_Colle_04.bcf</file>
     </input>
     <output>
-      <file>"Cycle_01_ Colle_04".bbl</file>
+      <file>Cycle_01_Colle_04.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>"Cycle_01_ Colle_04".bbl</file>
+      <file>Cycle_01_Colle_04.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>"Cycle_01_ Colle_04".bcf</file>
+      <file>Cycle_01_Colle_04.bcf</file>
     </requires>
     <requires type="editable">
       <file>bibliography.bib</file>
