@@ -131,7 +131,83 @@ Ch. 1 \& 2 : Grandeurs mécaniques et électriques -- \xxactivite%
 \subparagraph{}
 \textit{Déterminer $\vect{A}$ et $\vect{B}$.}
 
-\section*{Exercice 4 -- Application du PFD}
+\section*{Exercice 4 -- Application du PFD -- Funiculaire de Monmartre}
+\setcounter{subparagraph}{0}
+\textit{D'après ressources de JP Pupier.}
+
+\subsection*{Mise en situation}
+Le funiculaire est un moyen de transport en commun, guidé sur des rails rectilignes, et se déplaçant sur des distances relativement courtes mais très raides. 
+
+L’entraînement est réalisé par un treuil situé dans la gare supérieure, enroulant un câble lié à la cabine du funiculaire. Il permet ainsi de gravir la pente depuis la sortie de la station de métro jusqu’en haut de la butte Montmartre.
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_06}
+\end{center}
+
+%\begin{obj}
+Les objectifs sont les suivants :
+\begin{itemize}
+\item vérifier les caractéristiques du frein de secours qui s’actionne en cas d’anomalie (rupture du câble, obstacle sur la voie etc…) En effet la vie des personnes peut être mise en danger si ce freinage est trop brusque;
+\item Les normes de sécurité imposent une décélération $a$, avec $0,8\;\text{ms}^{-2}<a<5,2\;\text{ms}^{-2}$.
+\end{itemize}
+
+Nous allons vérifier le respect de ces valeurs pour un freinage avec 60 personnes puis pour une occupation de la cabine par une seule personne.
+%\end{obj}
+
+\subsection*{Données et hypothèses}
+\begin{itemize}
+\item Capacité cabine = 60 personnes (75 kg / personne = 4500 kg).
+\item Masse morte cabine = 6 000 kg.
+\item Masse totale roulante = 10 500 kg.
+\item Longueur quai à quai = 108 m.
+\item Dénivellation totale= 36 m.   
+\item Pente = $20^{\text{o}}$.
+\item Vitesse nominale petit trafic = 2 m/s   et grand trafic = 3,5 m/s.
+\item Accélération = $0,35 \text{ms}^{-2}$.
+\end{itemize}
+
+\subsection*{Schéma de situation}
+\begin{center}
+\includegraphics[width=\linewidth]{images/fig_07}
+\end{center}
+
+\begin{itemize}
+\item $G$ : centre d’inertie du système.
+\item $A$ et $B$ : liaisons ponctuelles des roues/rails de guidage.
+\item $H$ et $I$ : points de contact des deux patins de freinage sur le rail de frein d’urgence.
+\item $g$ : accélération de la pesanteur = $10 \text{ms}^{-2}$.
+\item $\mathcal{R}$ : repère lié au sol.
+\item Patins $H$ et $I$ en fonction lors du freinage d’urgence.
+\end{itemize}
+Les actions mécaniques sont les suivantes :
+\begin{itemize}
+\item Au point $I$ on a : $\vectf{\text{rail} \rightarrow \text{patin}} = -24750 \vect{x}  -24750 \vect{z}$ dans le repère $\mathcal{R}$. 
+\item Au point $H$ on a : $\vectf{\text{rail} \rightarrow \text{patin}} = +24750 \vect{x}  -24750 \vect{z}$ dans le repère $\mathcal{R}$.
+\end{itemize}
+
+\subsection*{Travail demandé}
+
+\textbf{Cas 1 : 60 personnes}
+
+\subparagraph{}
+\textit{Isoler le système (S1), cabine + personnes + frein, et faire le bilan des A.M.E.}
+
+\subparagraph{}
+\textit{Énoncer le P.F.D dans notre cas (selon le type de mouvement).}
+
+\subparagraph{}
+\textit{Appliquer celui-ci sur l’axe du mouvement.}
+
+\subparagraph{}
+\textit{Résoudre l’équation ainsi obtenue et déterminer la décélération  de la cabine pour ce cas.}
+
+\textbf{Cas 2 : 1 personne}
+
+\subparagraph{}
+\textit{Appliquer le P.F.D. et résoudre l’équation ainsi obtenue : on déterminera la décélération  de la cabine pour ce cas.}
+
+\subparagraph{}
+\textit{Conclure quant au respect des normes de sécurité dans les 2 cas .}
+
 \end{multicols}
 %\begin{thebibliography}{2}
 %\bibitem{1}{Patrick Beynet, \textit{Supports de cours de TSI 2}, Lycée Rouvière, Toulon.}
