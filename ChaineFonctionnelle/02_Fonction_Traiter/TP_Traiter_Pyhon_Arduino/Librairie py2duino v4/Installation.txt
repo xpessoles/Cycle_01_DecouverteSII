@@ -1,0 +1,9 @@
+Pour installer la toolbox Arduino v4, il faut :
+- dans le logiciel Arduino, cliquer sur Croquis/Inclure une bibliothèque / Ajouter la bibliothèque Zip
+choisir alors la bibliothèque TimerOne-r11.zip pour l'installer.
+- dans le logiciel Arduino, sélectionner le port COM différent de 1 correspondant à la carte branchée par l'intermédiaire du cable USB et téléverser le programme toolbox_arduino_v4.ino
+Ces opérations ne sont à faire qu'une seule fois. Le logiciel Arduino peut être éteint ensuite. Il faut noter le port COM cependant.
+
+- placer le programme py2duino.py dans le répertoire Lib de votre distribution python. Ces commandes fonctionnent en python3 uniquement mais sous windows, linux et mac (en notant le nom complet du port, ex : "/dev/ttcy3")
+- pour un pilotage en Bluetooth, il faut que les pins Rx-TX de la carte bluetooth soit mis sur les pins 0 et 1 de la carte Arduino pour utiliser la librairie.
+
