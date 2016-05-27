@@ -4,7 +4,7 @@
 """
 
 # Déclarations initiales
-COM_ARDUINO = 11
+COM_ARDUINO = 19
 LED_R = 2
 
 from py2duino import *
