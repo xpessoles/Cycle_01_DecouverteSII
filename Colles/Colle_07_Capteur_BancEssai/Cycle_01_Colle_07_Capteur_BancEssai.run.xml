@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>Colle_07_Capteur_BancEssai.bcf</file>
+      <file>Cycle_01_Colle_07_Capteur_BancEssai.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>Colle_07_Capteur_BancEssai.bbl</file>
+      <file>Cycle_01_Colle_07_Capteur_BancEssai.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>Colle_07_Capteur_BancEssai</infile>
+      <infile>Cycle_01_Colle_07_Capteur_BancEssai</infile>
     </cmdline>
     <input>
-      <file>Colle_07_Capteur_BancEssai.bcf</file>
+      <file>Cycle_01_Colle_07_Capteur_BancEssai.bcf</file>
     </input>
     <output>
-      <file>Colle_07_Capteur_BancEssai.bbl</file>
+      <file>Cycle_01_Colle_07_Capteur_BancEssai.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>Colle_07_Capteur_BancEssai.bbl</file>
+      <file>Cycle_01_Colle_07_Capteur_BancEssai.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>Colle_07_Capteur_BancEssai.bcf</file>
+      <file>Cycle_01_Colle_07_Capteur_BancEssai.bcf</file>
     </requires>
     <requires type="editable">
       <file>bibliography.bib</file>
