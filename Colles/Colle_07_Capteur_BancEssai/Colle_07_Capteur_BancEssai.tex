@@ -1,0 +1,267 @@
+\documentclass[10pt,fleqn]{article} % Default font size and left-justified equations
+\usepackage[%
+    pdftitle={Cycle 01 : Introduction aux grandeurs physiques},
+    pdfauthor={Xavier Pessoles}]{hyperref}
+    
+\input{style/new_style}
+\input{style/macros_SII}
+
+\usepackage{multicol}
+\fichetrue
+%\fichefalse
+
+%\proftrue
+\proffalse
+
+\tdtrue
+%\tdfalse
+
+%\courstrue
+\coursfalse
+
+\def\discipline{Sciences \\Industrielles de \\ l'Ingénieur}
+\def\xxtete{Sciences Industrielles de l'Ingénieur}
+
+\def\classe{PTSI}
+\def\xxnumpartie{Cycle 01}
+\def\xxpartie{Découverte des systèmes pluritechnologiques -- Introduction aux grandeurs physiques}
+
+
+\def\xxnumchapitre{Chapitre 1 \& 2}
+\def\xxchapitre{\hspace{.12cm} Grandeurs mécaniques et électriques}
+
+\def\xxtitreexo{Banc d'essai d'une BTP Hélicoptère}
+\def\xxsourceexo{\hspace{.2cm} D'après concours CCP -- TSI 2015.}
+
+
+\def\xxposongletx{2}
+\def\xxposonglettext{1.45}
+\def\xxposonglety{20}
+\def\xxonglet{Cy. 1 -- Ch. 1 \& 2}
+
+\def\xxactivite{Colle 7}
+\def\xxauteur{\textsl{Xavier Pessoles}}
+
+\def\xxcompetences{%
+\textsl{%
+\textbf{Savoirs et compétences :}
+\begin{itemize}[label=\ding{112},font=\color{ocre}] 
+\item -- %Alg -- C15 : Récursivité : avantages et inconvénients.
+\end{itemize}
+}}
+
+
+\def\xxfigures{
+\includegraphics[width=.6\textwidth]{images/banc}
+}%figues de la page de garde
+
+\def\xxpied{%
+Cycle 01 -- Introduction aux grandeurs physiques  \\
+Ch 1 \& 2 : Grandeurs mécaniques et électriques -- \xxactivite%
+}
+
+
+\setcounter{secnumdepth}{5}
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+%\chapterimage{png/Fond_Cin}
+\input{style/new_pagegarde}
+\vspace{7.5cm}
+\pagestyle{fancy}
+\thispagestyle{plain}
+
+
+\def\columnseprulecolor{\color{ocre}}
+\setlength{\columnseprule}{0.4pt} 
+\ifprof
+\else
+\begin{multicols}{2}
+\fi
+
+Sur un hélicoptère la boite de transmission principale (BTP) réalise la jonction entre les turboréacteurs et les arbres de transmission (rotor principal ou rotor arrière). Dans le but de réaliser des essais, la société Airbus Helicopters a réalisé un banc d'essai permettant (entre autre) de solliciter la BTP en imposant des vitesses ou des couples en entrée et en mesurant couples et vitesses en sortie de boîte.
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/btp}
+\end{center}
+
+\begin{obj} 
+Les objectifs de cet exercices sont de :
+\begin{itemize}
+\item déterminer les caractéristiques du moteur électrique se substituant au turboréacteur dans le banc d'essai;
+\item étudier le montage électrique permettant de mesurer le couple en sortie de BTP. 
+\end{itemize}
+\end{obj}
+
+\subsection*{Détermination des performances du moteur}
+On note :
+\begin{itemize}
+\item $k_{\text{BTP}}=25$  le rapport de transmission de la BTP est défini par $\dfrac{N(1⁄0)}{N(2⁄0)} =\dfrac{1}{k_{BTP}}$;
+\item $\eta =0,98$  le rendement de la BTP et de chacune des transmissions par engrenages en régime permanent;
+\item $N(2⁄0)=8\,750 \;\text{tr.min}^{-1}$ la fréquence de rotation en entrée de BTP (fréquence de rotation des turbines entraînant la BTP);
+\item $N(1⁄0)=350\;\text{tr.min}^{-1}$ la fréquence de rotation en sortie de BTP (la fréquence de rotation du rotor);
+\item $C_1=4\,100 \;\text{Nm}$ le couple transmis par l’arbre de sortie de la BTP (ce couple étant nécessaire pour assurer la rotation des pales et le vol de l’hélicoptère).
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=.95\linewidth]{images/schema}
+\end{center}
+\subparagraph{}
+\textit{Déterminer le couple $C_2$ à fournir en entrée de la BTP.} 
+\ifprof
+
+\begin{corrige}
+
+Le rendement $\eta$ de la BTP étant donné, on a : 
+$\eta =\dfrac{P_1}{P_2} =\dfrac{C_1 \omega (1⁄0)}{C_2 \omega (2⁄0)} = \dfrac{C_1}{C_2} \cdot \dfrac{1}{k_{BTP}}$ 	soit :	$C_2=\dfrac{C_1}{k_{BTP}\cdot \eta }$ .
+
+Application numérique : 	$C_2=\dfrac{4100}{25\cdot 0,98}=167\; \text{Nm}$.
+
+
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{Calculer le rapport de transmission de l'arbre moteur jusqu'à l'entrée de la boîte de vitesses. On exprimera pour cela le rapport $k_T=  \dfrac{N(2⁄0)}{N(7⁄0)}$. En déduire la fréquence de rotation du moteur électrique $N(7⁄0)$ en $\text{tr.min}^{-1}$.}
+
+\ifprof
+\begin{corrige}
+$k_T= \dfrac{N(2⁄0)}{N(7⁄0)}=\dfrac{Z_7 Z_6 Z_5 Z_41 Z_31}{Z_6 Z_5 Z_42 Z_32 Z_2} =\dfrac{Z_7 Z_41 Z_31}{Z_42 Z_32 Z_2}$.
+
+
+Application numérique : 	$k_T=\dfrac{62\cdot 45\cdot73}{51\cdot22\cdot40}=4,54$.
+
+On en déduit la fréquence de rotation du moteur électrique : $N(7⁄0)=\dfrac{N(2⁄0)}{k_T}$.
+
+Application numérique : $N(7⁄0)=8750/4,54=1930 \text{tr/min}$.
+
+
+
+\end{corrige}
+\else
+\fi
+
+\subparagraph{}
+\textit{En faisant un bilan de puissance à chacun des étages de réduction et en tenant compte du rendement des transmissions par engrenages, calculer le couple $C_7$ que doit fournir le moteur électrique et la puissance mécanique utile.}
+
+\ifprof
+
+\begin{corrige}
+
+$\dfrac{P_2}{P_7} = \dfrac{C_2 \omega (2⁄0)}{C_7 \omega (7⁄0)}=\dfrac{(k_T C_2)}{C_7} =\eta^5$ soit : $C_7= \dfrac{k_T\cdot C_2}{\eta^5}$.
+
+Application numérique : 	$C_7=\dfrac{4,54 \cdot 167}{0,98^5} = 839 \text{N.m}$.
+
+La puissance mécanique utile est de :	$P_7=C_7 \cdot \omega (7⁄0) = C_7\cdot N(7⁄0)\cdot \dfrac{2\pi}{60}$.
+
+Application numérique :	$P_7=839 \cdot 1928 \dfrac{2\pi}{60}=170 \; \text{kW}$.
+
+
+
+\end{corrige}
+\else
+\fi
+
+
+
+
+\subsection*{Analyse du capteur d'effort}
+Le banc d'essai est équipé de plusieurs capteurs de couple sur l'arbre moteur d'entraînement, sur les arbres d'entrées et aussi sur les arbres de sorties rotor principal et rotor arrière. Ces capteurs sont équipés de jauges de contrainte montées en pont de Wheatstone.
+
+
+
+\subparagraph{}
+\textit{En utilisant le montage en quart de pont figure suivante, donner l'expression de $V_{\text{mes}}$ en fonction de $R_a$, $R$ et $E_{\text{pw}}$. Indiquer les conditions d'équilibre du pont ($V_{\text{mes}}=0$). La résistance $R_a$ de jauge pour un couple de torsion de $1\,000\;\text{Nm}$ est de $356 \; \Omega$, donner la valeur numérique de $V_{\text{mes}}$ ($E_{\text{pw}}  =10\;V$, $R=350 \; \Omega$).}
+
+
+\ifprof
+\begin{corrige}~\\
+
+On utilise un pont diviseur de tension pour calculer $U_A$ :	$U_A=  R/(R+R_a )E_{pw}$.
+
+On procède de même pour calculer $U_B$ : $U_B=  R/(R+R)\cdot E_{pw}=E_{pw}/2$.
+
+On en déduit : $V_mes=(U_A-U_B)= (R/(R+ R_a )- 1/2)\cdot E_{pw} )$.
+
+Pour équilibrer le pont $(V_{\text{mes}}=0)$, il faut $R_a= R$.
+
+Valeur numérique de $V_{\text{mes}}$ pour $R_a=356 \Omega$:	$V_mes=( 350/(350+ 356)- 1/2)\cdot 10=-0,0425 V$.
+
+\end{corrige}
+\else
+\fi
+
+
+\begin{center}
+\includegraphics[width=.95\linewidth]{images/montage_01}
+\end{center}
+
+
+Ces jauges de contraintes sont raccordées aux cartes d'acquisitions grâce à des câbles blindés avec une âme en cuivre (de résistivité $\rho=1,72\cdot 10^{-8}  \;\omega\text{m}$) de section $S=0,14\;\text{mm}^2$ et de longueur $50^;\text{m}$. Le schéma équivalent (montage pont de Wheatstone avec résistance des fils de liaison) est donné sur la figure suivante.
+
+\begin{center}
+\includegraphics[width=.95\linewidth]{images/montage_02}
+\end{center}
+
+
+\subparagraph{}
+\textit{Calculer la résistance d'un fil $R_f$ et donner la nouvelle expression de $V_{\text{mes}}$. Refaire le calcul de $V_{\text{mes}}$ en utilisant les mêmes données numériques. Calculer l'erreur de la mesure en \%. Conclure sur l'erreur due aux câbles par rapport à la précision intrinsèque du capteur.}
+
+
+\ifprof
+\begin{corrige}~\\
+
+Résistance $R_f$ d’un fil : $R_f=(\rho.l)/S$.
+
+Application numérique :	$R_f=(1,72\cdot(10)^(-8)\cdot50)/(0,14\cdot(10)^(-6) )= 6,14 \Omega$.
+
+La nouvelle expression de $V_{\text{mes}}$ s’écrit : $V_{\text{mes}}=(U_A-U_B)=R/(R+R_a+2 R_f ) E_{\text{pw}}-R/(R+R) \cdot E_{\text{pw}}=(R/(R+ R_a+2\cdot R_f )- 1/2)\cdot E_{\text{pw}} )$
+
+Valeur numérique de $V_{\text{mes}}$ pour $R_a=356 \; \Omega $: $V_{\text{mes}}=(350/(350+ 356+2\cdot 6,14)- 1/2)\cdot 10=-0,127 V$.
+
+L’erreur de mesure est donc de :	$\varepsilon_{\text{mes}}=( (-0,127+0,0425)/0,127)=66 \%$).
+
+Cette erreur due aux câbles est bien supérieure à la précision intrinsèque du capteur.
+
+\end{corrige}
+\else
+\fi
+
+
+
+\subparagraph{}
+\textit{En utilisant le montage du pont de Wheatstone avec résistance des 3 fils de liaison démontrer que l'on retrouve l'équilibre du pont avec le montage 3 fils quand la jauge est au repos.}
+
+
+\ifprof
+\begin{corrige}~\\
+
+
+Avec un montage 3 fils (pas de courant dans la branche du haut) :
+
+$V_{mes}=(U_A-U_B)=(R+R_f)/(R+R_a+2\cdot R_f )\cdot E_{\text{pw}}-R/(R+R)\cdot E_{\text{pw}}=((R+R_f)/(R+ R_a+2\cdot R_f )- 1/2)\cdot E_pw$.
+
+Avec $R_a= R$: $V_mes=((R+R_f)/(R+ R+2\cdot R_f )- 1/2)\cdot E_{\text{pw}}=((R+R_f)/(2\cdot  R+2\cdot R_f )- 1/2)\cdot E_{\text{pw}}=0$.
+
+On retrouve bien l'équilibre du pont avec le montage 3 fils quand la jauge est au repos.
+
+
+
+\end{corrige}
+\else
+\fi
+
+
+\begin{center}
+\includegraphics[width=.95\linewidth]{images/montage_03}
+\end{center}
+
+\ifprof
+\else
+\end{multicols}
+\fi
+\end{document}
+
+
