@@ -4,7 +4,7 @@
 """
 
 # Déclarations initiales
-COM_ARDUINO = 11
+COM_ARDUINO = 3
 PIN_LED = 13
 
 from py2duino import *
@@ -25,10 +25,10 @@ duree = 5
 while time.time()<start+duree :
     # On allume la led
     led.high()
-    time.sleep(1)
+    time.sleep(.1)
     # On éteint la led
     led.low()
-    time.sleep(1)
+    time.sleep(.1)
 
 # On libère la carte Arduino
 MaCarte.close()
