@@ -1,0 +1,565 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{true}
+
+\usepackage[%
+    pdftitle={Systèmes hydrauliques et pneumatiques},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+\def\xxtitre{\ifthenelse{\boolean{xp}}{
+CI 1 : Analyse des systèmes pluritechniques et multiphysiques -- Initiation à l'Ingénierie Système}{}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 6 -- Analyse des systèmes hydrauliques et pneumatiques}{
+Partie  -- }}
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+Xavier \textsc{Pessoles}}{}}
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+CI 1 : Analyse des systèmes pluritechniques et multiphysiques\\
+Ch. 6 : Systèmes hydrauliques et pneumatiques -- Cours}{
+\xxtitre}}
+
+\def\xxcathegorie{\ifthenelse{\boolean{xp}}{
+2013 -- 2014 \\
+Xavier \textsc{Pessoles}}{
+Informatique - Cours}}
+
+
+
+
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+
+\ifthenelse{\boolean{xp}}{\input{style/enteteXP}}{\input{style/enteteDI}}
+
+\begin{minipage}[c]{.23\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/ExoHand}
+
+\textit{ExoHand -- Festo \cite{festo}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.23\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/caterpillar}
+
+\textit{Pelle hydraulique -- Caterpillar \cite{caterpillar}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.23\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/simulateur}
+
+\textit{Simulateur de vol \cite{simulateur}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.23\linewidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/MoteurHydraulique}
+
+Moteur hydraulique \cite{mh}
+\end{center}
+\end{minipage} 
+
+\begin{savoir}
+Communiquer : 
+\begin{itemize}
+\item Com-C2-S1 : Extraire les informations utiles d’un dossier technique;
+\item Com-C2-S2 : Effectuer une synthèse des informations disponibles dans un dossier technique;
+\item Com-C2-S3 : Vérifier la nature des informations;
+\item Com-C2-S4 : Trier les informations selon des critères;
+%\item Com-C2-S5 : Distinguer les différents types de documents en fonction de leurs usages;
+\item Com-C2-S6 : Lire et décoder un schéma.
+\end{itemize}
+\end{savoir}
+
+
+\setlength{\parskip}{0ex plus 0.2ex minus 0ex}
+ \renewcommand{\contentsname}{}
+ \renewcommand{\baselinestretch}{1}
+
+\tableofcontents
+
+ \renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{2ex plus 0.5ex minus 0.2ex}
+
+
+
+\section{L'énergie pneumatique et hydraulique dans la chaîne fonctionnelle d'un système}
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/chainefonc}
+\end{center}
+
+\subsection{Définitions}
+\begin{defi}
+\textbf{Énergie pneumatique :} le fluide utilisé est de l’air comprimé.
+
+\textbf{Énergie hydraulique :} le fluide utilisé est une huile hydraulique minérale ou difficilement inflammable (aqueux ou non).
+\end{defi}
+
+L'unité de pression, notée $p$, est le Pascal, noté $Pa$.
+\begin{resultat}
+$$
+1\; bar = 10^5\; Pa \quad 10^6 \; Pa = 1 \; MPa = 1\; N/mm^2
+$$
+\end{resultat}
+
+Le débit d'un fluide est noté $q$. Il s'exprime en $m^3/s$. 
+
+\begin{resultat}
+\textbf{Puissance hydraulique et pneumatique}
+
+La puissance en Watt s'exprime par :
+$$ 
+\mathcal{P} = qp
+$$
+
+
+\end{resultat}
+
+\subsection{Comparatif}
+
+\begin{center}
+\begin{tabular}{|l|p{.35\textwidth}|p{.35\textwidth}|}
+\cline{2-3}
+\multicolumn{1}{c|}{}& Avantages & Inconvénients \\
+\cline{2-3}
+\hline
+Énergie  pneumatique &
+\begin{itemize}
+\item Production : air disponible partout et en quantité illimitée.
+\item Transport aisé dans des conduites bon marché.
+\item Matière d’œuvre propre.
+\item Composants peu coûteux.
+\item Possibilité de vitesses et de cadences élevées.
+\end{itemize}
+&
+\begin{itemize}
+\item Source d'énergie exigeant un excellent conditionnement (filtration). Aucune impureté, aucune poussière, etc., ne doit pénétrer dans le système.
+\item Difficulté d'obtenir des vitesses régulières du fait de la compressibilité de l'air.
+\item Forces développées restent relativement faibles (pression d’utilisation de 3 à 10 bars).
+\end{itemize}
+ \\
+\hline
+Énergie hydraulique & 
+\begin{itemize}
+\item Transmission de forces et de couples élevés.
+\item Une grande souplesse d'utilisation dans de nombreux domaines.
+\item Une très bonne régulation de la vitesse sur les appareils moteurs, du fait de l'incompressibilité du fluide.
+\item Le démarrage en charge des moteurs hydrauliques et des vérins.
+\item Une augmentation de la longévité des composants, contrairement aux systèmes pneumatiques, où il est nécessaire d'utiliser un lubrificateur après la filtration de l'air. Les systèmes hydrauliques, du fait de la présence de l'huile, possèdent un excellent moyen de lubrification.
+\end{itemize}&
+\begin{itemize}
+\item Risques d'accident dus à l'utilisation de pressions élevées dans les systèmes 50 < P < 700 bars.
+\item Fuites qui entraînent une diminution du rendement.
+\item Pertes de charge dues à la circulation de l'huile dans les tuyauteries.
+\item Risques d'incendie dus à l'utilisation d'une huile hydraulique minérale inflammable.
+\item Matériel coûteux dont la maintenance est onéreuse du fait du prix de revient élevé des composants, du remplacement de l'huile hydraulique et des filtres.
+\end{itemize}
+\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{rem}
+Les principaux inconvénients de l'air sont résultent de ses propriétés physiques : 
+\begin{itemize}
+\item sa compressibilité;
+\item son échauffement lors de sa compression et son refroidissement en phase de détente;
+\item sa masse volumique variable en fonction de la température.
+\end{itemize}
+En première approximation, ces paramètres sont liés par l'équation des gaz parfaits : $\dfrac{pV}{T} = \text{cte}$ en notant $p$ la pression du gaz, $V$ son volume et $T$ sa température. 
+
+\end{rem}
+
+
+
+
+
+\section{Stockage et alimentation en énergie}
+
+Pour obtenir de l'énergie pneumatique, on utilise un compresseur. L'énergie hydraulique est obtenue grâce à des pompes. Des exemples de pompes seront données ultérieurement. Les pompes ou les compresseurs sont actionnés par un moteur électrique ou thermique. Dans les systèmes pneumatiques, la circulation d'air se fait généralement en circuit ouvert. Dans le cas des systèmes hydrauliques, le fluide est en circuit fermé. Cela impose des conditions sur les constituants des réseaux. 
+
+\begin{minipage}[b]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_Moteur}
+
+\textit{Symboles d'un moteur}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_Pompe2}
+
+\textit{Symboles d'une pompe à deux sens de rotation et deux sens de flux}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[b]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_MotoPompe}
+
+\textit{Symboles d'une groupe moteur + pompe}
+\end{center}
+\end{minipage}
+
+\subsection{Systèmes de stockage}
+Dans le cas de l'huile, elle peut être stockée à pression atmosphérique dans un réservoir (appelé aussi <<bâche>>) ou dans un réservoir haute pression. 
+Les compresseurs pneumatiques sont souvent reliés à une cuve qui garde l'air sous pression. 
+
+
+\begin{minipage}[c]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/Compresseur}
+
+\textit{Compresseur 100L -- 10 bars \cite{compresseur}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/reservoir}
+
+\textit{Réservoir de 50 à 25 000 L\cite{reservoir}}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_Reservoir}
+\includegraphics[width=.2\textwidth]{images/Symb_Accumulateur}
+
+\textit{Symboles du réservoir et de l'accumulateur}
+\end{center}
+\end{minipage}
+
+\subsection{Systèmes de conditionnement}
+
+
+\begin{minipage}[c]{.55\textwidth}
+Il est nécessaire de conditionner le fluide avant de la faire circuler dans le circuit. Dans le cas de l'énergie pneumatique, il est indispensable de s'assurer de la pureté de l'air ainsi que d'un faible taux d'humidité. Pour cela on utilise d'une part des filtres permettant de filtrer l'air entrant dans le réseau en amont et en aval du compresseur. Il est aussi nécessaire d'utiliser d'un refroidisseur-assécheur permettant de réduire le taux d'humidité. 
+
+Dans le cas d'un système hydraulique, le fluide est filtrée afin d'éliminer les impuretés.
+\end{minipage} \hfill
+\begin{minipage}[c]{.4\textwidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/fig8}
+\end{center}
+\end{minipage}
+
+
+
+\begin{minipage}[c]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_Filtre}
+
+\textit{Symbole d'un filtre}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_Deshydrateur}
+
+\textit{Symbole d'un déshydrateur}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.3\textwidth}
+\begin{center}
+\includegraphics[width=.3\textwidth]{images/Symb_Lubrificateur}
+
+\textit{Symbole d'un lubrificateur}
+\end{center}
+\end{minipage} 
+
+
+
+\subsection{Systèmes de sécurité}
+
+
+\begin{minipage}[c]{.62\textwidth}
+Afin de maîtriser la pression dans les conduites, on peut avoir recours à des manomètres afin d'avoir une informations sur la pression. Les régulateurs de pression permettent quant à eux d'évacuer l'air du système lorsque la pression est trop grande. Les limiteurs de débit permettent de maitriser le débit de fluide.
+
+Les systèmes de clapet anti-retour permettent d'imposer le sens de circulation d'un fluide. 
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.35\textwidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/fig5}
+
+\textit{Régulateur de débit}
+\end{center}
+\end{minipage}
+
+
+\subsection{Exemples}
+
+\begin{minipage}[c]{.47\textwidth}
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/Fig_01_Compresseur}
+
+\textit{Schéma de compresseur intégré}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.5\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/Fig_02_FRL}
+
+\textit{Unité Filtre -- mano-Régulateur -- Lubrificateur}
+\end{center}
+\end{minipage} 
+
+
+\section{Convertisseurs d'énergie}
+
+
+\begin{minipage}[c]{.53\textwidth}
+\subsection{Les vérins}
+\subsubsection{Constituants d'un vérin}
+
+Un vérin est un actionneur utilisant de l'énergie pneumatique pour produire une énergie mécanique lors d'un déplacement linéaire ou rotatif limité à sa course. Le vérin permet de convertir de l'énergie pneumatique (ou hydraulique) en énergie mécanique.
+
+\begin{center}
+\includegraphics[width=6cm]{images/fig1}
+\end{center}
+
+Dans les deux cas le produit des deux valeurs donne une puissance, la puissance $P\cdot Q$ pneumatique étant convertie en puissance $F\cdot V$ mécanique. Il est à noter que le rendement de ces actionneurs est mauvais ($\eta =0,5$ environ) : une grande partie de l'énergie pneumatique est perdue sous forme d'énergie calorifique et lors de la mise à l'échappement de l'air comprimé. En prenant en compte le rendement du compresseur ($\eta =0,4$), on obtient un rendement global très faible pour la chaîne d'action pneumatique ($\eta =0,2$).
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.44\textwidth}
+\begin{center}
+\includegraphics[width=.6\textwidth]{images/verin_festo}
+\end{center}
+
+\begin{center}
+\includegraphics[width=\textwidth]{images/Fig_03_Verin}
+\end{center}
+\end{minipage}
+
+
+\subsubsection{Fonctionnement d'un vérin pneumatique}
+
+\begin{minipage}[c]{.53\textwidth}
+Considérons le vérin représenté par un distributeur à deux positions. On note $Pa$, la pression dans la chambre coté admission, $Pe$, la pression dans la chambre coté échappement (parfois appelée "contre pression d'échappement") et $Pu$, la pression d'utilisation fournie par le secteur pneumatique. 
+
+
+Au moment précis où le distributeur vient de commuter sous l'action de la commande $v+$, la chambre arrière est brusquement reliée à la pression d'utilisation et simultanément la chambre avant est mise à la pression atmosphérique.
+
+Le déplacement de l'ensemble tige et piston s'effectue en trois phases.
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.45\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/fig2}
+\end{center}
+\end{minipage}
+
+
+\textbf{Phase 1 : démarrage, de $t=0$ à $t_1$ :} la pression $Pa$ augmente progressivement pendant que la pression $Pe$ diminue. Pendant cette phase, de courte durée, le piston est immobile.
+
+\textbf{Phase 2 : déplacement, de $t_1$ à $t_2$ :} dès que la différence des pressions $Pa-ë$ est suffisante pour vaincre les efforts résistants, le piston se déplace. Pendant cette phase, la pression diminue dans la chambre à l'admission, car le débit d'air ne peut pas compenser l'augmentation du volume de la chambre, et dans la chambre d'échappement pour les raisons inverses. La vitesse du vérin augmente. 
+
+\textbf{Phase 3 : arrêt, à partir de $t_2$ :} lorsque le piston arrive en butée avant du vérin il se produit un arrêt brutal, la vitesse chute quasi instantanément. Les pressions s'équilibrent assez rapidement pour atteindre la pression d'utilisation dans la chambre à l'admission et la pression atmosphérique dans la chambre à l'échappement. 
+
+\paragraph{Système d'amortissement intégré}
+\begin{minipage}[c]{.63\linewidth}
+Ce qui précède permet de constater que, dans le cas où le vérin travaille sur la totalité de sa course, un choc important a lieu en fin de course. En utilisation l'ensemble des éléments mobile liés à sa tige. Pour ce faire les vérins sont dotés de dispositifs d'amortissement de deux types : 
+\begin{itemize}
+\item amortissement élastique intégré, il s'agit de bagues élastomères qui ne peuvent absorber qu'une énergie faible;
+\item amortissement pneumatique intégré, ces derniers, plus efficaces, sont réglables par vis. 
+\end{itemize}
+
+Le principe d'un amortisseur intégré est le suivant : tant que le piston est éloigné de la zone d'amortissement, l'échappement s'effectue normalement. Dès que le piston rentre dans la zone d'amortissement, il vient obturer le cylindre d'échappement : l'air doit alors passer par la restriction réglable ce qui augmente le contre pression $Pe$ et diminue la vitesse. 
+\end{minipage} \hfill
+\begin{minipage}[c]{.35\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/fig3}
+\end{center}
+\end{minipage}
+
+\paragraph{Efforts développés par un vérin}
+Pour les raisons déjà évoquées de complexité de modélisation du comportement de l'air, les constructeurs ne fournissent pas de courbes caractéristiques de fonctionnement pour ce type d'actionneur, contrairement aux moteurs électriques ou aux vérins hydrauliques. Afin de pouvoir mener des calculs, on introduit les hypothèses simplificatrices suivantes. 
+
+\paragraph{Effort statique (ou théorique)}
+Il correspond à l'effort développé par le vérin en butée. En considérant que la liaison entre cylindre et piston + tige est parfaite, que la pression motrice $Pa$ est constante et égale à la pression d'utilisation $Pa=Pu=P$ et que la contre pression d'échappement $Pe$ est nulle, l'effort statique développé par un vérin est :
+$$
+F_s=P\cdot S_u
+$$
+On note $P$ la pression d'utilisation, $S_u$, surface utile du piston. Dans le cas des vérins à tige, l'effort statique en rentrée $F_{sr}$ est différent de celui en sortie $F_{ss}$, les surfaces utiles étant différentes. 
+
+En posant $D$ le diamètre du piston et $d$ le diamètre de la tige, on obtient : 
+$$
+F_{ss}=P\dfrac{\pi D^2}{4} \quad \text{et} \quad F_{sr}=P\dfrac{\pi \left(D^2-d^2\right)}{4}
+$$
+
+
+\subsubsection{Vérin simple effet}
+
+Ce vérin ne peut développer un effort que dans un seul sens.
+La course de rentrée s’effectue grâce à un ressort de rappel incorporé entre le piston et le flasque avant. Il ne possède qu’une seule entrée d’air.
+
+\begin{center}
+\includegraphics[width=12cm]{images/Fig_04_VerinSE}
+\end{center}
+
+\subsubsection{Vérin double effets}
+Ce type de vérin peut fournir un travail en tirant et en poussant.
+
+\begin{center}
+\includegraphics[width=12cm]{images/Fig_05_VerinDE}
+\end{center}
+
+\subsubsection{Vérin rotatif}
+
+Le mouvement de translation d’un ensemble tige / piston est transformé en rotation.
+
+\begin{center}
+\includegraphics[width=12cm]{images/Fig_06_VerinRot}
+\end{center}
+
+
+\subsection{Pompes}
+
+\section{Distributeurs (\textit{modulateurs}) d'énergie}
+
+
+
+
+\begin{minipage}[c]{.6\textwidth}
+\subsection{Présentation}
+
+Les distributeurs sont les préactionneurs des vérins pneumatiques et hydrauliques.
+Ils servent d’<<aiguillages>> en dirigeant le fluide dans certaines directions.
+Les plus utilisés sont les distributeurs à tiroir.
+
+\end{minipage} \hfill
+\begin{minipage}[c]{.37\textwidth}
+\begin{center}
+\includegraphics[width=.7\textwidth]{images/distributeur_festo}
+
+\textit{Vérin double effet et distributeur 5/2 monostable à commande manuelle par bouton}
+\end{center}
+\end{minipage}
+
+
+\begin{minipage}[c]{.47\textwidth}
+\begin{center}
+\includegraphics[width=.9\textwidth]{images/Fig_07}
+
+\textit{Vérin simple effet et distributeur 3/2 monostable NF à commande manuelle par bouton}
+\end{center}
+\end{minipage} \hfill
+\begin{minipage}[c]{.47\textwidth}
+\begin{center}
+\includegraphics[width=.9\textwidth]{images/Fig_08}
+
+\textit{Vérin double effet et distributeur 5/2 monostable à commande manuelle par bouton}
+\end{center}
+\end{minipage}
+
+
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/Fig_09}
+
+\textit{Vérin double effet à amortissement réglable et distributeur 5/2 bistable à commande électropneumatique}
+\end{center}
+
+\subsection{Désignation des distributeurs}
+Lors de l'élaboration des schémas, il n'est pas possible de représenter le distributeur, ainsi que les autres composants, sous leurs formes commerciales. De ce fait, l'utilisation de symboles normalisés simplifie la lecture et la compréhension des systèmes. Cette représentation utilise la symbolisation par cases.
+Un distributeur se représente sur les côtés droit et/ou gauche (comme dans la réalité) par des pilotages. Ils permettent au tiroir de se déplacer afin de mettre en communication les différents orifices.
+
+\begin{center}
+\includegraphics[width=.8\textwidth]{images/Fig_10_distri}
+\end{center}
+
+\begin{center}
+\rotatebox{270}{\includegraphics[height=.8\textwidth]{images/fig4}}
+\end{center}
+
+
+
+\section{Actionneurs pneumatiques}
+
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{images/ventouse_festo}
+
+\textit{Ventouse}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{images/generateur_vide}
+
+\textit{Générateur de vide}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{images/pince_festo}
+
+\textit{Pince}
+\end{center}
+\end{minipage}
+\section{Systèmes de mesure}
+
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{images/Manometre}
+
+\textit{Manometre}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.2\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{images/Pressostat}
+
+\textit{Pressostat}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[c]{.55\linewidth}
+\begin{center}
+\includegraphics[height=3.5cm]{images/CapteurChute}
+
+\textit{Capteur de chute de pression}
+\end{center}
+\end{minipage}
+
+\section{Récapitulatif}
+\begin{center}
+\rotatebox{270}{\includegraphics[height=\textwidth]{images/recap}}
+\end{center}
+
+\begin{thebibliography}{2}
+\bibitem{festo}{\url{http://www.festo.com}.}
+\bibitem{caterpillar}{Caterpillar -- Pelles hydrauliques 374 D L\url{http://s7d2.scene7.com/is/content/Caterpillar/C633539}.}
+\bibitem{simulateur}{\url{http://www.defense.gouv.fr/}.}
+\bibitem{mh}{\url{http://joho.p.free.fr/}.}
+\bibitem{compresseur}{\url{http://www.espaceoutillage.com/}.}
+\bibitem{reservoir}{\url{http://www.directindustry.fr/}.}
+\bibitem{pb}{\textit{Patrick Beynet}, Fonctions du produit -- Technologie pneumatique – hydraulique pour les systèmes automatisés de production. Lycée Rouvière Toulon.}
+\bibitem{perrin}{\textit{J. Perrin, F. Binet, J.-J. Dumery, C. Merlaud, J.-P. Trichard}, Automatique et Informatique Industrielle -- Bases théoriques, méthodologiques et techniques, Éditions Nathan Technique, 2004.}
+\bibitem{gda}{Guide des Automatismes Industriels.}
+\end{thebibliography}
+\end{document}
+
+

@@ -1,0 +1,172 @@
+\documentclass[10pt]{article}
+\input{style/coursHeadings}
+\input{style/programHeadings}
+\input{style/macros_SII}
+\input{style/macros_Titres}
+\input{style/macros_Frames}
+
+%Si le boolen xp est vrai : compilation pour xabi
+%Sinon compilation Damien
+\newboolean{xp}
+\setboolean{xp}{true}
+
+\newboolean{prof}
+\setboolean{prof}{true}
+
+
+
+\usepackage[%
+    pdftitle={Systèmes hydrauliques et pneumatiques},
+    pdfauthor={Xavier Pessoles},
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=magenta]{hyperref}
+
+
+\def\discipline{Sciences Industrielles de l'Ingénieur}
+\def\xxtitre{\ifthenelse{\boolean{xp}}{
+CI 1 : Analyse des systèmes pluritechniques et multiphysiques -- Initiation à l'Ingénierie Système}{}}
+
+\def\xxsoustitre{\ifthenelse{\boolean{xp}}{
+Chapitre 6 -- Analyse des systèmes hydrauliques et pneumatiques}{
+Partie  -- }}
+
+\def\xxauteur{\ifthenelse{\boolean{xp}}{
+Xavier \textsc{Pessoles}}{}}
+
+\def\xxpied{\ifthenelse{\boolean{xp}}{
+CI 1 : Analyse des systèmes pluritechniques et multiphysiques\\
+Ch. 6 : Systèmes hydrauliques et pneumatiques -- Applications}{
+\xxtitre}}
+
+\def\xxcathegorie{\ifthenelse{\boolean{xp}}{
+2013 -- 2014 \\
+Xavier \textsc{Pessoles}}{
+Informatique - Cours}}
+
+%---------------------------------------------------------------------------
+
+
+\begin{document}
+
+\ifthenelse{\boolean{xp}}{\input{style/enteteXP}}{\input{style/enteteDI}}
+
+\begin{center}
+\textit{\Large{Exercices d'application}}
+\end{center}
+
+\subsection*{Exercice 1 : Schéma pneumatique de la capsuleuse de bocaux}
+
+On donne la chaine fonctionnelle permettant de monter et descendre l'ensemble ventouse de la capsuleuse, le schéma pneumatique ainsi que le schéma électrique de câblage de l'automate.
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/CECF}
+\end{center}
+
+\begin{minipage}[b]{.48\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/AlimPneu}
+
+\textit{Alimentation pneumatique}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}[b]{.48\linewidth}
+\begin{center}
+\includegraphics[width=\textwidth]{images/Pneu02}
+
+\textit{Système de blocage du bocal et d'aspiration de la capsule}
+\end{center}
+\end{minipage}
+
+\vspace{.5cm}
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/Pneu01}
+
+\textit{Alimentation pneumatique}
+\end{center}
+
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/TSX3710_in}
+
+\textit{Schéma électrique correspondant aux entrées de l'automate}
+\end{center}
+
+\begin{center}
+\includegraphics[width=.95\textwidth]{images/TSX3710_out}
+
+\textit{Schéma électrique correspondant aux sorties de l'automate}
+\end{center}
+
+\newpage{}
+
+\subsubsection*{Bloc d'alimentation}
+\subparagraph{}
+\textit{Donner la désignation des constituants du bloc d'alimentation pneumatique.}
+
+\subparagraph{}
+\textit{Lors de l'allumage de la capsuleuse, le distributeur général est alimenté. Redessiner la nouvelle configuration du distributeur.}
+
+\subparagraph{}
+\textit{Quel sortie de l'automate permet l'alimentation du distributeur.}
+
+\subsubsection*{Étude du tiroir}
+\subparagraph{}
+\textit{Donner la désignation du distributeur et de l'actionneur utilisés pour déplacer le tiroir.}
+
+\subparagraph{}
+\textit{Indiquer par des flèches vertes la circulation de l'air lors dans la configuration du schéma. Indiquer par des flèches rouges la circulation du fluide lorsque on change la position du distributeur.}
+
+\subsubsection*{Système de montée et descente de la capsule}
+\subparagraph{}
+\textit{Identifier l'actionneur et les pré actionneurs associés à la montée et la descente de la tête. Donner leur désignation.}
+
+\subparagraph{}
+\textit{Expliquer le lien existant entre l'automate et le préactionneur. }
+
+\subparagraph{}
+\textit{Sur le schéma électrique correspondant aux entrées de l'automate, expliquer à quoi correspondent les entrées \%I1.4 et \%I1.5.}
+
+\subparagraph{}
+\textit{Que se passe-t-il quand la sortie \%Q2.5 de l'automate est activée ?}
+
+\subparagraph{}
+\textit{Expliquer comment monter (ou descendre) la tête lorsque elle est en bas (en haut).}
+
+\subparagraph{}
+\textit{Expliquer le rôle des composants 3N3 et 3V4.}
+
+\subsubsection*{Éléments divers}
+
+\subparagraph{}
+\textit{Expliquer le fonctionnement des composants 2A, 5A et 4A.}
+
+
+\subsection*{Exercice 2 : Schéma hydraulique du pilote automatique de voilier}
+\setcounter{subparagraph}{0}
+\vspace{.5cm}
+\begin{center}
+\includegraphics[width=.4\textwidth]{images/GroupeHydraulique}
+\hfill
+\includegraphics[width=.4\textwidth]{images/GroupeHydraulique}
+\end{center}
+
+\subparagraph{}
+\textit{Donner la désignation de chacun des composants hydrauliques.}
+
+\subparagraph{}
+\textit{Analyser ce schéma dans les cas d’utilisation  suivants :
+\begin{itemize}
+\item le vérin sort à droite;
+\item le vérin sort à gauche;
+\item l’effort sur le vérin devient trop important;
+\item le vérin est immobile mais doit rester en place sous les efforts;
+\item le vérin doit se déplacer librement car le safran est sous commande manuelle (le volant du bateau).
+\end{itemize}}
+
+\subparagraph{}
+\textit{Proposer un schéma cinématique de la pompe (on précise qu'il s'agit d'une pompe à pistions radiaux).}
+\end{document}
+
+
